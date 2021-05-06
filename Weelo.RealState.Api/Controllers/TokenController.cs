@@ -11,6 +11,8 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using Weelo.LogicaNegocio.Interface;
+using Weelo.RealEstate.Api.Model;
+using Weelo.Transversal.Message.Service;
 
 namespace Weelo.RealEstate.Api.Controllers
 {
@@ -31,9 +33,39 @@ namespace Weelo.RealEstate.Api.Controllers
 
         
         [HttpPost]
-        public ActionResult Post()
+        public async Task<ActionResult> Post([FromBody] TokenViewModel tokenViewModel)
         {
-            return Ok();
+            ResponseViewModel<UserViewModel> response = new ResponseViewModel<UserViewModel>();
+            UserViewModel userViewModel = new UserViewModel();
+            string token = string.Empty;
+            sbyte userActivo = 0;
+
+            if (await EsUsuarioValido(tokenViewModel.User, tokenViewModel.Password))
+            {
+                var result = await GenerarToken(tokenViewModel.User, tokenViewModel.Password);
+                userActivo = result.UserActivo;
+                token = result.Access_Token;
+            }
+
+            if (!String.IsNullOrEmpty(token))
+            {
+                if (userActivo == 1)
+                {
+                    response.Data = new UserViewModel() { Token = token, User = tokenViewModel.User };
+                    response.MessageOk = new MessageOk() { Code = "1001", Description = "Usuario encontrado." };
+                }
+                else
+                {
+                    response.MessageError = new MessageError() { Code = "1003", Description = "Usuario Inactivo." };
+                }
+            }
+            else
+            {
+                response.MessageError = new MessageError() { Code = "1002", Description = "Usuario no encontrado." };
+            }
+
+            return Ok(response);
+            
         }
 
 

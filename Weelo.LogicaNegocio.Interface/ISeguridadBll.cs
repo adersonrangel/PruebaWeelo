@@ -7,6 +7,9 @@ using Weelo.Dominio;
 
 namespace Weelo.LogicaNegocio.Interface
 {
+    /// <summary>
+    /// Interface de logica de seguridad
+    /// </summary>
     public interface ISeguridadBll
     {
         Task<Cliente> ValidarUsuario(string usuario, string clave);

@@ -12,7 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Weelo.LogicaNegocio\Weelo.LogicaNegocio.csproj" />
+    <ProjectReference Include="..\Weelo.Transversal.IoC\Weelo.Transversal.IoC.csproj" />
+    <ProjectReference Include="..\Weelo.Transversal\Weelo.Transversal.csproj" />
   </ItemGroup>
 
 </Project>

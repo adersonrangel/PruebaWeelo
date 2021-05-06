@@ -8,14 +8,14 @@ namespace Weelo.LogicaNegocio
     /// <summary>
     /// Clase de logica de negocio de Seguridad
     /// </summary>
-    public class SeguridadBll
+    public class SeguridadBll : ISeguridadBll
     {
-        private readonly ISeguridadBll seguridadBll;
+       
 
         //Constructor
-        public SeguridadBll(ISeguridadBll seguridadBll)
+        public SeguridadBll()
         {
-            this.seguridadBll = seguridadBll;
+           
         }
 
 

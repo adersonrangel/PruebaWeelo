@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Weelo.Transversal.IoC;
 
 namespace Weelo.RealEstate.Api
 {
@@ -28,6 +29,9 @@ namespace Weelo.RealEstate.Api
         {
 
             services.AddControllers();
+
+            services.AddServices();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Weelo.RealEstate.Api", Version = "v1" });
