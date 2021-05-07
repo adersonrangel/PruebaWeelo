@@ -32,8 +32,7 @@ namespace Weelo.UnitOfWork
             }
             catch (Exception ex)
             {
-
-                throw;
+                throw ex;
             }
           
             return  respuesta;

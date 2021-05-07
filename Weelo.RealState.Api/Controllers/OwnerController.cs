@@ -41,21 +41,26 @@ namespace Weelo.RealEstate.Api.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody]OwnerViewModel ownerViewModel)
-        {        
+        public async Task<ActionResult> Post([FromForm]IFormCollection ownerViewModel)
+        {
+            DateTime birthDay;
 
             if (ownerViewModel == null) { return BadRequest();}
-            if (ownerViewModel.Photo == null) { return BadRequest(); }
+            if (DateTime.TryParse(ownerViewModel["Birthday"] ,out birthDay) == false) {
+                return BadRequest();
+            }
+            if (ownerViewModel.Files.Count == 0) { return BadRequest(); }
 
             Owner owner = new()
             {
-                Name = ownerViewModel.Name,
-                Address = ownerViewModel.Address,
-                Birthday = ownerViewModel.Birthday
+                Name = ownerViewModel["Name"],
+                Address = ownerViewModel["Address"],
+                Birthday = birthDay
+              
             };
 
             using (MemoryStream ms = new MemoryStream()){
-                    ownerViewModel.Photo.CopyTo(ms);
+                    ownerViewModel.Files[0].CopyTo(ms);
                     byte[] array = ms.GetBuffer();
                 owner.Photo= array;
             }        

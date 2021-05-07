@@ -11,7 +11,8 @@ namespace Weelo.Dominio
     {
         [Key]
         public int IdPropertyImage { get; set; }
-        [Required()]
+        
+        
         public Byte[] File { get; set; }
 
         [Required]

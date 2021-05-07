@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Weelo.Data;
 
 namespace Weelo.Data.Migrations
 {
     [DbContext(typeof(WeeloDbContext))]
-    partial class WeeloDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210507193612_Campo_Imagen")]
+    partial class Campo_Imagen
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
