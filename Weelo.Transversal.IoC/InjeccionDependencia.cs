@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Weelo.LogicaNegocio;
 using Weelo.LogicaNegocio.Interface;
-
+using Weelo.UnitOfWork;
+using Weelo.UnitOfWork.Interfaces;
 
 namespace Weelo.Transversal.IoC
 {
@@ -23,6 +24,7 @@ namespace Weelo.Transversal.IoC
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<ISeguridadBll, SeguridadBll>();
+            services.AddScoped<IOwnerBll, OwnerBll>();
 
             return services;
         }
@@ -34,6 +36,8 @@ namespace Weelo.Transversal.IoC
         /// <returns></returns>
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UnitOfWorkSqlServer>();
+
             return services;
         }
 

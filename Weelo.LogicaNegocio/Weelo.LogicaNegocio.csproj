@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Weelo.LogicaNegocio.Interface\Weelo.LogicaNegocio.Interface.csproj" />
+    <ProjectReference Include="..\Weelo.UnitOfWork\Weelo.UnitOfWork.csproj" />
   </ItemGroup>
   
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

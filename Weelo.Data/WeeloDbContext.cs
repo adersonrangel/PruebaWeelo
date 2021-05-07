@@ -14,18 +14,26 @@ namespace Weelo.Data
     public class WeeloDbContext :DbContext
     {
 
-        DbSet<Owner> Owner { get; set; }
-        DbSet<Property> Property { get; set; }
+        public DbSet<Owner> Owner { get; set; }
+        public DbSet<Property> Property { get; set; }
 
-        DbSet<PropertyTrace> PropertyTrace { get; set; }
+        public DbSet<PropertyTrace> PropertyTrace { get; set; }
 
-        DbSet<PropertyImage> PropertyImage { get; set; }
+        public DbSet<PropertyImage> PropertyImage { get; set; }
 
+        /// <summary>
+        /// Constructor de la clase
+        /// </summary>
+        /// <param name="options">Contexto base</param>
         public WeeloDbContext(DbContextOptions<WeeloDbContext> options): base(options)
         {
 
         }
 
+        /// <summary>
+        /// Metodo OnModelingCreating
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Property>()
@@ -39,9 +47,6 @@ namespace Weelo.Data
             modelBuilder.Entity<PropertyTrace>()
                  .Property(x => x.Tax)
                  .HasPrecision(18, 2);
-
-
-
 
             base.OnModelCreating(modelBuilder);
         }

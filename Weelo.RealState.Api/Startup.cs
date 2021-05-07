@@ -39,6 +39,7 @@ namespace Weelo.RealEstate.Api
             services.AddControllers();
 
             services.AddServices();
+            services.AddRepositories();
 
             services.AddSwaggerGen(c =>
             {
