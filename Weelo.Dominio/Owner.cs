@@ -20,9 +20,8 @@ namespace Weelo.Dominio
         [MaxLength(250)]
         public string Address { get; set; }
 
-
-        [MaxLength(250)]
-        public string Photo { get; set; }
+       
+        public Byte[] Photo { get; set; }
 
         [Required]
         public DateTime Birthday { get; set; }

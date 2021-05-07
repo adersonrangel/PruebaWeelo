@@ -57,7 +57,7 @@ namespace Weelo.RealEstate.Api.Controllers
             using (MemoryStream ms = new MemoryStream()){
                     ownerViewModel.Photo.CopyTo(ms);
                     byte[] array = ms.GetBuffer();
-                owner.Photo= "array";
+                owner.Photo= array;
             }        
   
             await ownerBll.Add(owner);
