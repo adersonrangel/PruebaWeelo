@@ -7,5 +7,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Weelo.Dominio\Weelo.Dominio.csproj" />
   </ItemGroup>
-
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
 </Project>

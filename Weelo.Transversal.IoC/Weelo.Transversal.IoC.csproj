@@ -11,5 +11,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Weelo.LogicaNegocio\Weelo.LogicaNegocio.csproj" />
   </ItemGroup>
-
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
 </Project>
