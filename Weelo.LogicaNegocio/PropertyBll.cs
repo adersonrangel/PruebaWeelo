@@ -44,6 +44,12 @@ namespace Weelo.LogicaNegocio
         public Property Get(int id)
         {
            var response = unitOfWorkSqlServerAdapter.Repositories.Property.Get(id);
+           
+           if (response.Result != null) {
+                var owner = unitOfWorkSqlServerAdapter.Repositories.Owner.Get(response.Result.OwnerId);
+                response.Result.Owner = owner.Result;  
+            }
+
            return response.Result;
         }
 
