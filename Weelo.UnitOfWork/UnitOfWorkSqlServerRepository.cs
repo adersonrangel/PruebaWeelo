@@ -19,11 +19,12 @@ namespace Weelo.UnitOfWork
 
         public IOwnerRepository Owner { get; }
 
-        public IPropertyRepository Property => throw new NotImplementedException();
+        public IPropertyRepository Property {get;}
 
-        public IPropertyImageRepository PropertyImage => throw new NotImplementedException();
+        public IPropertyImageRepository PropertyImage { get; }
 
-        public IPropertyTraceRepository PropertyTrace => throw new NotImplementedException();
+        public IPropertyTraceRepository PropertyTrace { get; }
+        
 
         /// <summary>
         /// Contructor de la clase
@@ -33,6 +34,9 @@ namespace Weelo.UnitOfWork
         {
             this.context = context;
             Owner = new OwnerRepository(this.context);
+            PropertyImage = new PropertyImageRepository(this.context);
+            Property = new PropertyRepository(this.context);
+            PropertyTrace = new PropertyTraceRepository(this.context);
         }
     }
 }

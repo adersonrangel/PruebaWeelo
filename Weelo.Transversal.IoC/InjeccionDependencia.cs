@@ -25,6 +25,8 @@ namespace Weelo.Transversal.IoC
         {
             services.AddScoped<ISeguridadBll, SeguridadBll>();
             services.AddScoped<IOwnerBll, OwnerBll>();
+            services.AddScoped<IPropertyBll, PropertyBll>();
+            services.AddScoped<IPropertyTraceBll, PropertyTraceBll>();
 
             return services;
         }

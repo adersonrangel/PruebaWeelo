@@ -7,20 +7,33 @@ using System.Threading.Tasks;
 
 namespace Weelo.RealEstate.Api.Model
 {
-    public class PropertyTraceViewModel
+    /// <summary>
+    /// ViewModel para Property
+    /// </summary>
+    public class PropertyViewModel
     {
-       
-        public int IdPropertyTrace { get; set; }
-        [Required]
-        public DateTime DateSale { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public decimal Value { get; set; }
-        [Required]
-        public decimal Tax { get; set; }
 
-        public int PropertyId { get; set; }
-       
+        
+        public int IdProperty { get; set; }
+
+        [MaxLength(350)]
+        public string Name { get; set; }
+
+        [MaxLength(250)]
+        public string Address { get; set; }
+
+
+        public decimal Price { get; set; }
+
+        [MaxLength(5)]
+        public string CodeInternal { get; set; }
+
+        [MaxLength(4)]
+        public string Year { get; set; }
+
+
+        public int OwnerId { get; set; }
+      
+
     }
 }

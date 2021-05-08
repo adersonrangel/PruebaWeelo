@@ -5,6 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Weelo.Dominio;
+using Weelo.LogicaNegocio.Interface;
+using Weelo.RealEstate.Api.Model;
 
 namespace Weelo.RealEstate.Api.Controllers
 {
@@ -12,15 +15,49 @@ namespace Weelo.RealEstate.Api.Controllers
     [ApiController]
     public class PropertyController : ControllerBase
     {
-        public PropertyController(ILogger<PropertyController> logger)
+        private readonly IPropertyBll propertyBll;
+
+        public PropertyController(ILogger<PropertyController> logger,
+                               IPropertyBll propertyBll)
+        {
+            this.propertyBll = propertyBll;
+        }
+
+        [HttpGet("{id}")]
+        public ActionResult Get(int id)
         {
 
+            var property = propertyBll.Get(id);
+            return Ok(property);
         }
 
         [HttpGet]
-        public ActionResult Get(int id)
+        public async Task<ActionResult> GetAll()
         {
-            return Ok();
+
+            var property = await propertyBll.GetAll();
+            return Ok(property);
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> Post([FromBody] PropertyViewModel propertyViewModel)
+        {
+
+            if (propertyViewModel == null) { return BadRequest(); }
+
+            var property = new Property()
+            {
+                Address = propertyViewModel.Address,
+                Name = propertyViewModel.Name,
+                CodeInternal = propertyViewModel.CodeInternal,
+                Price = propertyViewModel.Price,
+                Year = propertyViewModel.Year,
+                OwnerId = propertyViewModel.OwnerId
+            };
+
+            await propertyBll.Add(property);
+            return Ok(201);
         }
     }
 }
