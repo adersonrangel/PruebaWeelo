@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,22 +25,34 @@ namespace Weelo.Repository.SqlServer
 
         public void Add(PropertyImage propertyImage)
         {
-            throw new NotImplementedException();
+            context.PropertyImage.Add(propertyImage);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var propertyImage = context.PropertyImage.FirstOrDefault(x => x.IdPropertyImage == id);
+            if (propertyImage != null)
+            {
+                context.PropertyImage.Remove(propertyImage);
+            }
         }
 
         public Task<PropertyImage> Get(int id)
         {
-            throw new NotImplementedException();
+            return context.PropertyImage.FirstOrDefaultAsync(x => x.IdPropertyImage == id);
         }
 
-        public Task<IEnumerable<PropertyImage>> GetAll()
+        public async Task<IEnumerable<PropertyImage>> GetAll()
         {
-            throw new NotImplementedException();
+            var query = context.PropertyImage.Select(p => new PropertyImage
+            {
+                IdPropertyImage = p.IdPropertyImage,
+                Enabled = p.Enabled,
+                File = p.File,
+                PropertyId = p.PropertyId
+            });
+
+            return query;
         }
     }
 }
