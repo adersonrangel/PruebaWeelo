@@ -29,13 +29,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weelo.Transversal.IoC", "We
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weelo.Data", "Weelo.Data\Weelo.Data.csproj", "{F76162C5-54BC-43AF-B4BC-13A94C772F3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weelo.UnitOfWork", "Weelo.UnitOfWork\Weelo.UnitOfWork.csproj", "{F981BF32-DB77-470C-B7CF-573F618DB0C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weelo.UnitOfWork", "Weelo.UnitOfWork\Weelo.UnitOfWork.csproj", "{F981BF32-DB77-470C-B7CF-573F618DB0C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weelo.UnitOfWork.Interfaces", "Weelo.UnitOfWork.Interfaces\Weelo.UnitOfWork.Interfaces.csproj", "{9F6BCFF2-F301-46BE-B8E1-99EEBADDCDA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weelo.UnitOfWork.Interfaces", "Weelo.UnitOfWork.Interfaces\Weelo.UnitOfWork.Interfaces.csproj", "{9F6BCFF2-F301-46BE-B8E1-99EEBADDCDA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weelo.Repository.Interfaces", "Weelo.Repository.Interfaces\Weelo.Repository.Interfaces.csproj", "{89792BE8-BCF0-436A-AFF9-7A8278E52DC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weelo.Repository.Interfaces", "Weelo.Repository.Interfaces\Weelo.Repository.Interfaces.csproj", "{89792BE8-BCF0-436A-AFF9-7A8278E52DC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weelo.Repository.SqlServer", "Weelo.Repository.SqlServer\Weelo.Repository.SqlServer.csproj", "{453AB97A-4970-4929-9484-67B1C1B36C52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Weelo.Repository.SqlServer", "Weelo.Repository.SqlServer\Weelo.Repository.SqlServer.csproj", "{453AB97A-4970-4929-9484-67B1C1B36C52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Weelo.RealEstate.Api.Nunit.Test", "Weelo.RealEstate.Api.Nunit.Test\Weelo.RealEstate.Api.Nunit.Test.csproj", "{8A181DD4-56BE-48D5-9115-A149EBED92CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{453AB97A-4970-4929-9484-67B1C1B36C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{453AB97A-4970-4929-9484-67B1C1B36C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{453AB97A-4970-4929-9484-67B1C1B36C52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A181DD4-56BE-48D5-9115-A149EBED92CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A181DD4-56BE-48D5-9115-A149EBED92CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A181DD4-56BE-48D5-9115-A149EBED92CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A181DD4-56BE-48D5-9115-A149EBED92CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -103,6 +109,7 @@ Global
 		{9F6BCFF2-F301-46BE-B8E1-99EEBADDCDA8} = {5A981D7C-1E78-425B-98EC-641B8B61575B}
 		{89792BE8-BCF0-436A-AFF9-7A8278E52DC5} = {5A981D7C-1E78-425B-98EC-641B8B61575B}
 		{453AB97A-4970-4929-9484-67B1C1B36C52} = {5A981D7C-1E78-425B-98EC-641B8B61575B}
+		{8A181DD4-56BE-48D5-9115-A149EBED92CE} = {FFFB588A-B170-43AB-B7C1-0A29D9E39683}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B21557A2-9582-4A5D-9877-C510B3111C4B}
