@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -20,16 +21,17 @@ namespace Weelo.RealEstate.Api.Nunit.Test
 
 
         }
-
+        
         [Test]
         public async Task Test1()
         {
             // Arrange
             var mockLogger = new Mock<ILogger<TokenController>>();
-            var mockConfiguration = new Mock<IConfiguration>();
+            var mockConfiguration = new Mock<IConfiguration>();            
             var mockRepo = new Mock<ISeguridadBll>();
             mockRepo.Setup(repo => repo.ValidarUsuario("Cliente","passwordSeguro1234567")).ReturnsAsync(GetTestCliente());
-            var controller = new TokenController(mockLogger.Object,mockConfiguration.Object, mockRepo.Object);
+
+            var controller = new TokenController(mockLogger.Object, mockConfiguration.Object, mockRepo.Object);
 
             TokenViewModel tokenViewModel = new TokenViewModel() {
                 User = "Cliente",
@@ -37,16 +39,17 @@ namespace Weelo.RealEstate.Api.Nunit.Test
             };
 
             // Act
-            var result = await controller.Post(tokenViewModel);
+            //var result = await mockRepo.Object.ValidarUsuario(tokenViewModel.User, tokenViewModel.Password);
+            var actionResult = await controller.Post(tokenViewModel); 
 
             // Assert
-            Assert.IsInstanceOf<TokenViewModel>(result);
-            //var model = Assert.IsAssignableFrom<ResponseViewModel>
-            //    viewResult.ViewData.Model);
+            //Assert.IsNotNull(result);
+            
+            //var model = Assert.IsAssignableFrom<ResponseViewModel>(viewResult.ViewData.Model);
 
             //Assert.Equal(2, model.Count());
-
-
+            Assert.IsInstanceOf<ActionResult>(actionResult);
+            mockRepo.Verify(x => x.ValidarUsuario(tokenViewModel.User, tokenViewModel.Password), Times.Once);
         }
 
 
