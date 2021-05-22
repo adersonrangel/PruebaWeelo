@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Weelo.LogicaNegocio.Interface\Weelo.LogicaNegocio.Interface.csproj" />
+    <ProjectReference Include="..\Weelo.UnitOfWork\Weelo.UnitOfWork.csproj" />
+  </ItemGroup>
+  
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+</Project>

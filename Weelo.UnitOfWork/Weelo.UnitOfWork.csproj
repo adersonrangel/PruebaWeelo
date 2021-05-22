@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Weelo.Data\Weelo.Data.csproj" />
+    <ProjectReference Include="..\Weelo.Repository.SqlServer\Weelo.Repository.SqlServer.csproj" />
+    <ProjectReference Include="..\Weelo.UnitOfWork.Interfaces\Weelo.UnitOfWork.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>
